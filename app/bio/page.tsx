@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import OpenBadge from '../components/OpenBadge';
 import QuazzCredito from '../components/QuazzCredito';
 import { Cadeira, CadeiraSymbol } from '../components/Cadeira';
-import { directOrder, external, food99, ifood, instagram, whatsapp } from '../components/links';
+import { directOrder, external, food99, ifood, instagram, instagramHandle, tiktok, tiktokHandle, whatsapp } from '../components/links';
 
 export const metadata: Metadata = {
   title: 'Links | Açaí de Lei',
-  description: 'Peça seu Açaí de Lei pelo cardápio, WhatsApp, iFood ou 99Food. Acompanhe também no Instagram.',
+  description: 'Peça seu Açaí de Lei pelo cardápio, WhatsApp, iFood ou 99Food. Acompanhe no Instagram e TikTok.',
   openGraph: {
     title: 'Links | Açaí de Lei',
-    description: 'Cardápio, WhatsApp, iFood, 99Food e Instagram do Açaí de Lei.',
+    description: 'Cardápio, WhatsApp, iFood, 99Food, Instagram e TikTok do Açaí de Lei.',
     images: [{ url: 'https://acai-de-lei-penha.jvictor-franci.chatgpt.site/acai-morango.jpg', width: 1216, height: 2160, alt: 'Copo real do Açaí de Lei' }],
   },
   twitter: {
@@ -71,7 +71,8 @@ export default function BioPage() {
         </a>
 
         <div className="bio-mais">
-          <a href={instagram} {...external}>@acaideleio no Instagram</a>
+          <a href={instagram} {...external}>{instagramHandle} no Instagram</a>
+          <a href={tiktok} {...external}>{tiktokHandle} no TikTok</a>
           <a href="/">Conhecer o site</a>
         </div>
 

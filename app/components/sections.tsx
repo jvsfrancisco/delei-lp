@@ -3,7 +3,7 @@ import OpenBadge from './OpenBadge';
 import OrderBar from './OrderBar';
 import QuazzCredito from './QuazzCredito';
 import { Cadeira, CadeiraSymbol, PilhaDeCadeiras } from './Cadeira';
-import { channels, directOrder, external, instagram } from './links';
+import { channels, directOrder, external, instagram, instagramHandle } from './links';
 
 const cupSizes = [
   { name: 'De Leve', volume: '300 ml' },
@@ -129,7 +129,7 @@ export function Pedir() {
       </ul>
       <div className="pedir-info">
         <p>Das 11h às 23h59.<br />Entrega na Penha e região, Rio de Janeiro.</p>
-        <p><a href={instagram} {...external}>@acaideleio</a> no Instagram</p>
+        <p><a href={instagram} {...external}>{instagramHandle}</a> no Instagram</p>
       </div>
     </section>
   );

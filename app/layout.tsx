@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://acai-de-lei-penha.jvictor-franci.chatgpt.site'),
   title: 'Açaí de Lei | Puxa a cadeira',
   description: 'Açaí cremoso, caprichado e sem caô. Delivery na Penha, RJ. Puxa a cadeira e pede um de lei.',
-  icons: { icon: '/brand-logo.png', apple: '/brand-logo.png' },
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Açaí de Lei | Puxa a cadeira',
     description: 'Delivery de açaí na Penha, RJ. Puxa a cadeira e pede um de lei.',
