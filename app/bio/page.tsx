@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+import OpenBadge from '../components/OpenBadge';
+import QuazzCredito from '../components/QuazzCredito';
+import { Cadeira, CadeiraSymbol } from '../components/Cadeira';
+import { directOrder, external, food99, ifood, instagram, whatsapp } from '../components/links';
 
 export const metadata: Metadata = {
   title: 'Links | Açaí de Lei',
@@ -16,30 +20,64 @@ export const metadata: Metadata = {
   },
 };
 
-const links = [
-  { label: 'PEDIR NO CARDÁPIO', detail: 'Pedido direto · InstaDelivery', href: 'https://instadelivery.com.br/acaideleipenha', mark: '01', primary: true },
-  { label: 'CHAMAR NO WHATSAPP', detail: 'Fala com a gente', href: 'https://wa.me/5521992569632', mark: '02' },
-  { label: 'PEDIR NO IFOOD', detail: 'Açaí de Lei · Penha', href: 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-de-lei---penha-penha-circular/656ecddb-9a72-4c9a-a306-1e6bbbc8d1a8?UTM_Medium=share', mark: '03' },
-  { label: 'PEDIR NO 99FOOD', detail: 'Mais uma forma de pedir', href: 'https://oia.99app.com/dlp9/dhjLr5?area=BR', mark: '04' },
-  { label: 'VER NOSSO INSTAGRAM', detail: '@acaideleio', href: 'https://www.instagram.com/acaideleio/', mark: '05' },
+const outros = [
+  { label: 'iFood', href: ifood },
+  { label: '99Food', href: food99 },
+  { label: 'WhatsApp', href: whatsapp },
 ];
 
 export default function BioPage() {
   return (
-    <main className="bio-page">
+    <main className="bio">
+      <CadeiraSymbol />
       <div className="bio-shell">
-        <a href="/" className="bio-back">← VOLTAR PARA O SITE</a>
-        <div className="bio-profile">
-          <img src="/brand-logo.png" alt="Logo oficial do Açaí de Lei no Instagram" />
-          <span>DELIVERY · PENHA, RJ</span>
-          <h1>AÇAÍ <em>DE LEI.</em></h1>
-          <p>Puxa a cadeira e pede um de lei. O seu momento mais gostoso começa aqui.</p>
+        <header className="bio-head">
+          {/* o selo do adesivo: anel "DE LEI" girando em volta da foto */}
+          <div className="bio-selo" aria-hidden="true">
+            <svg viewBox="0 0 400 400">
+              <defs>
+                <path id="bio-anel" d="M200,200 m-176,0 a176,176 0 1,1 352,0 a176,176 0 1,1 -352,0" />
+              </defs>
+              <circle cx="200" cy="200" r="198" fill="var(--wine)" />
+              <text>
+                <textPath href="#bio-anel" textLength="1100" lengthAdjust="spacing">DE LEI · DE LEI · DE LEI · DE LEI · DE LEI · DE LEI ·</textPath>
+              </text>
+            </svg>
+            <img src="/video/cenarios-suave.jpg" alt="" />
+          </div>
+          <h1>Açaí de Lei</h1>
+          <p>Puxa a cadeira e pede um de lei.</p>
+          <OpenBadge />
+        </header>
+
+        <a className="bio-pedir" href={directOrder} {...external}>
+          <Cadeira className="bio-pedir-cadeira" />
+          <span>
+            <strong>Pedir no cardápio</strong>
+            <small>Pedido direto, pelo InstaDelivery</small>
+          </span>
+        </a>
+
+        <ul className="bio-canais" aria-label="Outros canais">
+          {outros.map(c => <li key={c.label}><a href={c.href} {...external}>{c.label}</a></li>)}
+        </ul>
+
+        <a className="bio-lovezin" href="/#montagem">
+          <img src="/video/montagem.jpg" alt="" />
+          <span>
+            <strong>Lovezin no Arpoador</strong>
+            <small>Vê a montagem do copo, do fundo ao topo</small>
+          </span>
+        </a>
+
+        <div className="bio-mais">
+          <a href={instagram} {...external}>@acaideleio no Instagram</a>
+          <a href="/">Conhecer o site</a>
         </div>
-        <div className="bio-links">
-          {links.map(link => <a key={link.mark} className={link.primary ? 'bio-link primary' : 'bio-link'} href={link.href} target="_blank" rel="noopener noreferrer"><span className="bio-num">{link.mark}</span><span className="bio-link-copy"><strong>{link.label}</strong><small>{link.detail}</small></span><span className="bio-arrow">↗</span></a>)}
-        </div>
-        <div className="bio-photo"><img src="/acai-morango.jpg" alt="Copo de açaí real do Açaí de Lei" /><div><span>O MELHOR PLANO</span><strong>É PEDIR UM<br />DE LEI.</strong></div></div>
-        <p className="bio-footer">AÇAÍ DE LEI · PENHA E REGIÃO · RIO DE JANEIRO</p>
+
+        <p className="bio-info">Das 11h às 23h59 · Penha e região, Rio de Janeiro</p>
+
+        <QuazzCredito />
       </div>
     </main>
   );
