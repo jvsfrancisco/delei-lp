@@ -1,7 +1,7 @@
 export const directOrder = 'https://instadelivery.com.br/acaideleipenha';
 export const whatsapp = 'https://wa.me/5521992569632';
-export const instagram = 'https://www.instagram.com/acaidleiof?stkn=cHdmejcwczV0Njd0';
-export const instagramHandle = '@acaidleiof';
+export const instagram = 'https://www.instagram.com/acaideleiof/';
+export const instagramHandle = '@acaideleiof';
 export const tiktok = 'https://tiktok.com/@acaideleiof';
 export const tiktokHandle = '@acaideleiof';
 export const ifood = 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/acai-de-lei---penha-penha-circular/656ecddb-9a72-4c9a-a306-1e6bbbc8d1a8?UTM_Medium=share';
